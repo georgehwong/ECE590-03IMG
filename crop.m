@@ -1,6 +1,7 @@
 function img = crop( img, point, percentage)
 %CROP Summary of this function goes here
 %   Detailed explanation goes here
+%   我他妈改一下备注
 xsize = ceil( size(img, 1) * percentage / 2);
 ysize = ceil( size(img, 2) * percentage / 2);
     
