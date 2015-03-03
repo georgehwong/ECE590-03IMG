@@ -1,7 +1,7 @@
 clear
 patchSize = 8;
 
-I = double(rgb2gray(imread('/input80imgs8kernels/65_4_blurred.png')))/255;
+I = imread('/MichaeliAndIrani_deblur_results/img64_kernel4_MichaeliAndIrani_img.png');
 
 % load blurring kernel (you can download the kernels from Dilip Krishnan's
 % website
@@ -9,14 +9,15 @@ I = double(rgb2gray(imread('/input80imgs8kernels/65_4_blurred.png')))/255;
 % K = kernel1;
 % K = fspecial('motion',10,45);
 % K = fspecial('gaussian',[5 5],1);
-K=?????
+K = imread('/MichaeliAndIrani_deblur_results/img64_kernel4_MichaeliAndIrani_kernel.png');
+K = full(K);
 noiseSD = 0.01;
 patchSize = 8;
 
 
 % convolve with kernel and add noise
-ks = floor((size(K, 1) - 1)/2);
-yorig = I;
+% ks = floor((size(K, 1) - 1)/2);
+% yorig = I;
 %y = conv2(yorig, K, 'valid');
 %y = y + noiseSD*randn(size(y));
 %y = double(uint8(y .* 255))./255;
