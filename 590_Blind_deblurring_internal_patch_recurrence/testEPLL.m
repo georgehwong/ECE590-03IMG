@@ -1,7 +1,7 @@
 clear
 patchSize = 8;
 
-I = imread('/MichaeliAndIrani_deblur_results/img64_kernel4_MichaeliAndIrani_img.png');
+I = double(imread('/MichaeliAndIrani_deblur_results/img64_kernel4_MichaeliAndIrani_img.png'));
 
 % load blurring kernel (you can download the kernels from Dilip Krishnan's
 % website

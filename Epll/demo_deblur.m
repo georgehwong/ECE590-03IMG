@@ -1,14 +1,17 @@
 clear
 patchSize = 8;
 
-I = double(rgb2gray(imread('160068.jpg')))/255;
+I = double((imread('img64_kernel4_MichaeliAndIrani_img.png')))/255;
 
 % load blurring kernel (you can download the kernels from Dilip Krishnan's
 % website
 % load kernels.mat
 % K = kernel1;
+
 K = fspecial('motion',10,45);
+
 % K = fspecial('gaussian',[5 5],1);
+
 noiseSD = 0.01;
 patchSize = 8;
 

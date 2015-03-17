@@ -1,7 +1,7 @@
 %% load image
 close all;
 clear all;
-I = imread('/Input_80_imgs_8_kernels/62_4_blurred.png');
+I = imread('65_4_blurred.png');
 figure;
 imshow(I);
 
@@ -59,7 +59,6 @@ LINES = houghlines(EDGE, THETA, RHO, PEAKS, 'FillGap', 5, 'MinLength', 20);
 %  
 %                 Default: 40
 
-
 %% corner detector 
 figure;
 lambdaMin = smallEigenvalue(I, 3);
@@ -86,7 +85,6 @@ for k = 1:length(LINES)
         xy_len = xy;
     end
 end
-
 
 %% compute weighted line segment & corner value.
 % LINES.point1(2) is the x index of the original picture
