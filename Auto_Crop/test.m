@@ -1,7 +1,7 @@
 %% load image
-close all;
-clear all;
-I = imread('62_4_blurred.png');
+%close all;
+%clear all;
+I = blurImg;
 figure;
 imshow(I);
 
