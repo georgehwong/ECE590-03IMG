@@ -3,11 +3,11 @@
 
 
 3种方法:
-a. 自己产生kernel
+a. EPLL产生kernel
 b. 原论文算的kernel
 c. 原论文+subImg的kernel
 
-2种自己产生kernel的方法：
+2种blur image:
 a. K = fspecial(Gausian,[51 51], 3) 
 b. K = fspcial(Motion, 50*sqrt(2),45) 
    如果这个kernel太模糊算不出来，就用今天下午沿着x方向产生1*15的kernel转化成51*51的kernel，其余填0
