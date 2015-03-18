@@ -1,7 +1,7 @@
 %% load image
 %close all;
 %clear all;
-I = blurImg;
+I = noiseImg;
 figure;
 imshow(I);
 
