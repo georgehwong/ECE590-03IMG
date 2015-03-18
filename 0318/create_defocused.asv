@@ -6,10 +6,9 @@ I = double(img)/255;
 
 % load blurring kernel (you can download the kernels from Dilip Krishnan's
 % website
-load kernel1.mat
-K = a;
+% load kernels.mat
 % K = kernel1;
-% K = fspecial('motion',52,45);
+K = fspecial('motion',52,45);
 % K = fspecial('gaussian',[51 51],2);
 noiseSD = 0.01;
 patchSize = 8;
