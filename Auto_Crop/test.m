@@ -1,7 +1,7 @@
 %% load image
 %close all;
 %clear all;
-I = noiseImg;
+I = noiseI;
 figure;
 imshow(I);
 
