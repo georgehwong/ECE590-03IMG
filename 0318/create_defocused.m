@@ -32,28 +32,6 @@ end
 
 noiseI = y;
 
-% load GMM model
-load GSModel_8x8_200_2M_noDC_zeromean.mat
-
-% uncomment this line if you want the total cost calculated
-% LogLFunc = @(Z) GMMLogL(Z,GS); 
-
-% initialize prior function handle
-excludeList = [];
-prior = @(Z,patchSize,noiseSD,imsize) aprxMAPGMM(Z,patchSize,noiseSD,imsize,GS,excludeList);
-
-% comment this line if you want the total cost calculated
-LogLFunc = [];
-
-% deblur
-tic
-[cleanI,psnr,~] = EPLLhalfQuadraticSplitDeblur(noiseI,64/noiseSD^2,K,patchSize,50*[1 2 4 8 16 32 64],1,prior,I,LogLFunc);
-toc
-
-% output result
-figure(1);
-imshow(I); title('Original');
-figure(2);
+figure;
 imshow(noiseI); title('Corrupted Image');
-figure(3);
-imshow(cleanI); title('Restored Image');
+
