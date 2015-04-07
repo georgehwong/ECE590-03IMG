@@ -1,7 +1,7 @@
 %% load image
 close all;
 clear all;
-I = imread('/Input_80_imgs_8_kernels/62_4_blurred.png');
+I = imread('blurimg.png');
 figure;
 imshow(I);
 
