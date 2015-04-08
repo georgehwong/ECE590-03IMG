@@ -1,4 +1,5 @@
 clear all;
+close all;
 img1 = imread('1_7_blurred.png');
 [H1, img_deblurred] = BlindDeblurringAllLevels(img1, 51);
 save('kernel_1_7_blurred.mat','H1');
@@ -28,6 +29,7 @@ toc
 save('deblurred_1_7_blurred.mat','cleanI');
 
 clear all;
+close all;
 img2 = imread('6_1_blurred.png');
 [H2, img_deblurred] = BlindDeblurringAllLevels(img2, 51);
 save('kernel_6_1_blurred.mat','H2');
@@ -57,6 +59,7 @@ toc
 save('deblurred_6_1_blurred.mat','cleanI');
 
 clear all;
+close all;
 img3 = imread('10_1_blurred.png');
 [H3, img_deblurred] = BlindDeblurringAllLevels(img3, 51);
 save('kernel_10_1_blurred.mat','H3');
@@ -86,6 +89,7 @@ toc
 save('deblurred_10_1_blurred.mat','cleanI');
 
 clear all;
+close all;
 img4 = imread('39_7_blurred.png');
 [H4, img_deblurred] = BlindDeblurringAllLevels(img4, 51);
 save('kernel_39_7_blurred.mat','H4');
