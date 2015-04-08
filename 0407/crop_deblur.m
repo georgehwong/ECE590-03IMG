@@ -1,4 +1,4 @@
-I = imread('blurimg.png');
+% I = imread('blurimg.png');
 figure;
 imshow(I);
 
