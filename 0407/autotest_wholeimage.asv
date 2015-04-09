@@ -1,0 +1,138 @@
+% clear all;
+% close all;
+% %%img_1_7%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% img1 = imread('1_7_blurred.png');
+% img1 = img1(51:750,51:974);
+% [H1, img_deblurred1] = BlindDeblurringAllLevels(img1, 51);
+% save('kernel_1_7_blurred.mat','H1');
+% save('img_deblurred_1_7.mat','img_deblurred1');
+% 
+% %%img_6_1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% img2 = imread('6_1_blurred.png');
+% img2 = img2(51:718,51:974);
+% [H2, img_deblurred2] = BlindDeblurringAllLevels(img2, 51);
+% save('kernel_6_1_blurred.mat','H2');
+% save('img_deblurred_6_1.mat','img_deblurred2');
+% 
+% %%img_10_1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% img3 = imread('10_1_blurred.png');
+% img3 = img3(51:974,51:630);
+% [H3, img_deblurred3] = BlindDeblurringAllLevels(img3, 51);
+% save('kernel_10_1_blurred.mat','H3');
+% save('img_deblurred_10_1.mat','img_deblurred3');
+% 
+% %%img_39_7%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% img4 = imread('39_7_blurred.png');
+% img4 = img4(51:633,51:974);
+% [H4, img_deblurred4] = BlindDeblurringAllLevels(img4, 51);
+% save('kernel_39_7_blurred.mat','H4');
+% save('img_deblurred_39_7.mat','img_deblurred4');
+% 
+% %%epll img_1_7%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% patchSize = 8;
+% noiseSD = 0.01;
+% I1 = imread('img1_groundtruth_img.png');
+% I1 = double(I1)/255;
+% K1 = rot90(H1,2);
+% 
+% % load GMM model
+% load GSModel_8x8_200_2M_noDC_zeromean.mat
+% 
+% % uncomment this line if you want the total cost calculated
+% % LogLFunc = @(Z) GMMLogL(Z,GS); 
+% 
+% % initialize prior function handle
+% excludeList = [];
+% prior = @(Z,patchSize,noiseSD,imsize) aprxMAPGMM(Z,patchSize,noiseSD,imsize,GS,excludeList);
+% 
+% % comment this line if you want the total cost calculated
+% LogLFunc = [];
+% 
+% % deblur
+% tic
+% [cleanI1,psnr,~] = EPLLhalfQuadraticSplitDeblur(double(img1)/255,64/noiseSD^2,K1,patchSize,50*[1 2 4 8 16 32 64],1,prior,I1,LogLFunc);
+% toc
+% 
+% save('img_deblurred_1_7_epll.mat','cleanI1');
+% 
+% %%epll img_6_1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% patchSize = 8;
+% noiseSD = 0.01;
+% I2 = imread('img6_groundtruth_img.png');
+% I2 = double(I2)/255;
+% K2 = rot90(H2,2);
+% 
+% % load GMM model
+% load GSModel_8x8_200_2M_noDC_zeromean.mat
+% 
+% % uncomment this line if you want the total cost calculated
+% % LogLFunc = @(Z) GMMLogL(Z,GS); 
+% 
+% % initialize prior function handle
+% excludeList = [];
+% prior = @(Z,patchSize,noiseSD,imsize) aprxMAPGMM(Z,patchSize,noiseSD,imsize,GS,excludeList);
+% 
+% % comment this line if you want the total cost calculated
+% LogLFunc = [];
+% 
+% % deblur
+% tic
+% [cleanI2,psnr,~] = EPLLhalfQuadraticSplitDeblur(double(img2)/255,64/noiseSD^2,K2,patchSize,50*[1 2 4 8 16 32 64],1,prior,I2,LogLFunc);
+% toc
+% 
+% save('img_deblurred_6_1_epll.mat','cleanI2');
+% 
+% %%epll img_10_1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% patchSize = 8;
+% noiseSD = 0.01;
+% I3 = imread('img10_groundtruth_img.png');
+% I3 = double(I3)/255;
+% K3 = rot90(H3,2);
+% 
+% % load GMM model
+% load GSModel_8x8_200_2M_noDC_zeromean.mat
+% 
+% % uncomment this line if you want the total cost calculated
+% % LogLFunc = @(Z) GMMLogL(Z,GS); 
+% 
+% % initialize prior function handle
+% excludeList = [];
+% prior = @(Z,patchSize,noiseSD,imsize) aprxMAPGMM(Z,patchSize,noiseSD,imsize,GS,excludeList);
+% 
+% % comment this line if you want the total cost calculated
+% LogLFunc = [];
+% 
+% % deblur
+% tic
+% [cleanI3,psnr,~] = EPLLhalfQuadraticSplitDeblur(double(img3)/255,64/noiseSD^2,K3,patchSize,50*[1 2 4 8 16 32 64],1,prior,I3,LogLFunc);
+% toc
+% 
+% save('img_deblurred_10_1_epll.mat','cleanI3');
+
+%%epll img_39_7%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+patchSize = 8;
+noiseSD = 0.01;
+I4 = imread('img4_groundtruth_img.png');
+I4 = I4(1:583)
+I4 = double(I4)/255;
+K4 = rot90(H4,2);
+
+% load GMM model
+load GSModel_8x8_200_2M_noDC_zeromean.mat
+
+% uncomment this line if you want the total cost calculated
+% LogLFunc = @(Z) GMMLogL(Z,GS); 
+
+% initialize prior function handle
+excludeList = [];
+prior = @(Z,patchSize,noiseSD,imsize) aprxMAPGMM(Z,patchSize,noiseSD,imsize,GS,excludeList);
+
+% comment this line if you want the total cost calculated
+LogLFunc = [];
+
+% deblur
+tic
+[cleanI4,psnr,~] = EPLLhalfQuadraticSplitDeblur(double(img4)/255,64/noiseSD^2,K4,patchSize,50*[1 2 4 8 16 32 64],1,prior,I4,LogLFunc);
+toc
+
+save('img_deblurred_39_7_epll.mat','cleanI4');
