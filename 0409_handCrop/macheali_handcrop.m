@@ -9,6 +9,6 @@ resImg(165:280,1:290) = 0;
 
 save('kernel_handCrop_blurred.mat','H_crop');
 save('kernel_handCrop_blurred.mat','H_rest');
-save('kernel_handCrop_blurred.mat','H_whole');
+
 save('img_deblurred_handCrop.mat','img_deblurred_crop');
 save('img_deblurred_handCrop.mat','img_deblurred_rest');
