@@ -3,7 +3,7 @@ close all;
 clear all;
 
 
-I = imread('1_7_blurred.png');
+I = imread('6_1_blurred.png');
 crop_deblur;
 save('crop_kernel_1_7_blurred.mat','H');
 

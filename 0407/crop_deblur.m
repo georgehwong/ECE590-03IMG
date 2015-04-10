@@ -112,4 +112,4 @@ imshow(croppedImg);
 
 
 %% run deblurred method
-[H, img_deblurred] = BlindDeblurring_MichaeliIrani_v1(croppedImg, 51);
+%[H, img_deblurred] = BlindDeblurring_MichaeliIrani_v1(croppedImg, 51);

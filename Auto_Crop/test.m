@@ -1,7 +1,9 @@
 %% load image
-%close all;
-%clear all;
-I = noiseI;
+close all;
+clear all;
+
+
+I = imread('1_7_blurred.png');
 figure;
 imshow(I);
 
